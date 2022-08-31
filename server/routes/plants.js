@@ -18,8 +18,12 @@ router.get('/', plantController.getPlants, (req, res) => {
     return res.status(200).send(res.locals.plantsInfo);
 })
 
-router.patch('/:id', plantController.updateSection, (req, res) => {
+router.patch('/:id', plantController.updatePlant, (req, res) => {
     return res.status(200).send(res.locals.newPlantObj);
+})
+
+router.patch('/:id', plantController.deletePlant, (req, res) => {
+    return res.status(200).send('');
 })
 
 module.exports = router;
