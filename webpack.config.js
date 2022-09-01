@@ -16,7 +16,7 @@ module.exports = {
     module: {
         rules: [ // tell webpack to transpile javascript files using babel before bundling them. To do that we need to define some rules for the module bundling.
             {
-                test: /\.?js$/, // test property identifies which file or files should be transformed.
+                test: /\.?(js|jsx)$/, // test property identifies which file or files should be transformed.
                 exclude: /node_modules/,
                 use: { // use property indicates which loader should be used to do the transforming.
                     loader: "babel-loader",
@@ -41,7 +41,11 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, "src", "index.html")
+            template: path.join(__dirname, "public", "index.html")
         }),
     ],
+    resolve: {
+        // Enable importing JS / JSX files without specifying their extension
+        extensions: ['.js', '.jsx'],
+    },
 }

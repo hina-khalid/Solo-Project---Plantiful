@@ -1,6 +1,5 @@
 // business logic
 const { response } = require('express');
-
 const plantController = {};
 const plantsInfo = {};
 let nextId = 0;
@@ -21,7 +20,6 @@ function checkForProperties(obj, requiredProps) {
 plantController.addPlant = (req, res, next) => {
     const requiredProperties = ['name', 'water', 'repot', 'fertilize'];
     const body = { ...req.body };
-
 
     if (!checkForProperties(body, requiredProperties)) {
         next({
@@ -53,7 +51,7 @@ plantController.getPlants = (req, res, next) => {
 
 // pulling a single plant upon client request
 plantController.getPlant = (req, res, next) => {
-    console.log('checking to see if I enter my updatePlant');
+    console.log('Inside updatePlant');
     let id = req.params.id;
     res.locals.plantInfo = plantsInfo[id];
     next();
@@ -61,7 +59,7 @@ plantController.getPlant = (req, res, next) => {
 
 // updating a single property per client's request
 plantController.updatePlant = (req, res, next) => {
-    console.log("Checking to see if I am in the updatePlant");
+    console.log("Inside updatePlant");
     let id = req.params.id;
     let plant = plantsInfo[id];
     const body = { ...req.body };
@@ -72,10 +70,10 @@ plantController.updatePlant = (req, res, next) => {
 
 // delete a plant per client's request
 plantController.deletePlant = (req, res, next) => {
-    console.log("checking to see if I am inside the deletePlant Section");
+    console.log("Inside deletePlant");
     let id = req.params.id;
-    let plantToDelete = plantsInfo[id];
-    const body = { ...req.body };
+    delete plantsInfo[id]; // true
+    next();
 }
 
 

@@ -13,7 +13,6 @@ router.get('/:id', plantController.getPlant, (req, res) => {
     return res.status(200).send(res.locals.plantInfo);
 })
 
-
 router.get('/', plantController.getPlants, (req, res) => {
     return res.status(200).send(res.locals.plantsInfo);
 })
@@ -22,8 +21,11 @@ router.patch('/:id', plantController.updatePlant, (req, res) => {
     return res.status(200).send(res.locals.newPlantObj);
 })
 
-router.patch('/:id', plantController.deletePlant, (req, res) => {
-    return res.status(200).send('');
+
+router.delete('/:id', plantController.deletePlant, (req, res) => {
+    return res.status(200);
 })
+
+
 
 module.exports = router;

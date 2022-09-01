@@ -1,21 +1,23 @@
 //set up all basic routes here 
-// server -> plants -> controller 
-
 // backend file
-const path = require('path');
 const express = require('express');
+const path = require('path');
 const app = express();
 const PORT = 3000;
 const plantRoute = require('./routes/plants')
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+/**
+ * handle parsing request body
+ */
+app.use(express.json());
+
+app.use(express.static(path.resolve(__dirname, '../dist'))); //by adding express.static method we can serve all JavaScript, CSS, HTML, and even images.
 
 // all requests to '/plants' endpoint
 app.use("/plants", plantRoute);
+
 
 function globalErrorHandler(err, req, res, next) {
     const defaultError = {
