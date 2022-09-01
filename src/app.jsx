@@ -14,6 +14,15 @@ class App extends React.Component {
 
     addPlant(plant) {
         console.log(plant);
+        this.setState({ plantCards: plant });
+    }
+
+    displayPlant() {
+        let cards = [];
+        for (const plantId in this.state.plantCards) {
+            cards.push(<PlantCard key={plantId} {...this.state.plantCards[plantId]} />)
+        }
+        return cards;
     }
 
     render() {
@@ -22,7 +31,7 @@ class App extends React.Component {
             <div style={{ marginLeft: '40%', marginTop: '60px', width: '30%' }}>
                 < h1 > Plantiful </h1 >
                 <PlantInput addPlant={this.addPlant} />
-                <PlantCard />
+                {this.displayPlant()}
             </div >
         );
     };

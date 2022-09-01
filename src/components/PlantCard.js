@@ -5,10 +5,10 @@ class PlantCard extends React.Component {
         console.log('entering here.')
         return (
             <div>
-                <h3> Snake Plant </h3>
-                <div> 2022-08-31 </div>
-                <div> 2022-08-31</div>
-                <div> 2022-08-31 </div>
+                <h3>{this.props.name}</h3>
+                <div><b>Water Date:</b> {this.props.water}</div>
+                <div><b>Repot Date:</b>{this.props.repot}</div>
+                <div><b>Fertilize Date:</b>{this.props.fertilize}</div>
             </div>
         );
     };
