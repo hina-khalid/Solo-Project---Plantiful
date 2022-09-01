@@ -41,27 +41,27 @@ class PlantInput extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <h3>Plant Info</h3>
+            <form onSubmit={this.handleSubmit} style={{ backgroundColor: '#dcb49c', textAlign: 'center' }}>
+                <h2>Add your Plant!</h2>
                 <div className='NameField'>
-                    <label htmlFor='name'>Name:</label>
+                    <b><label htmlFor='name'>Name:</label></b>
                     <input name='name' placeholder='Enter name' plantname={this.state.name} onChange={this.handleChange} />
                 </div>
                 <div className='NameField'>
-                    <label htmlFor='water'>Water date:</label>
+                    <b><label htmlFor='water'>Water Date:</label></b>
                     <input name='water' placeholder='yyyy-mm-dd' water={this.state.name} onChange={this.handleChange} />
                 </div>
                 <div className='NameField'>
-                    <label htmlFor='repot'>Repot date:</label>
+                    <b><label htmlFor='repot'>Repot Date:</label></b>
                     <input name='repot' placeholder='yyyy-mm-dd' repot={this.state.name} onChange={this.handleChange} />
                 </div>
                 <div className='NameField'>
-                    <label htmlFor='fertilize'>Fertilize:</label>
+                    <b><label htmlFor='fertilize'>Fertilize Date:</label></b>
                     <input name='fertilize' placeholder='yyyy-mm-dd' fertilize={this.state.name} onChange={this.handleChange} />
                 </div>
                 <button
                     type="button"
-                    className="btnMain customCharNickname"
+                    className="addPlant"
                     onClick={this.handleSubmit}
                 >
                     Add Plant

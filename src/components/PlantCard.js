@@ -4,7 +4,7 @@ class PlantCard extends React.Component {
     render() {
         console.log('entering here.')
         return (
-            <div>
+            <div style={{ backgroundColor: '#d1a989', textAlign: 'center' }}>
                 <h3>{this.props.name}</h3>
                 <div><b>Water Date:</b> {this.props.water}</div>
                 <div><b>Repot Date:</b>{this.props.repot}</div>
