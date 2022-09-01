@@ -19,7 +19,19 @@ class PlantInput extends React.Component {
     // send the updated state back to the parent that requested the info
     handleSubmit(event) {
         alert('A plant was added');
+        console.log(this.state);
 
+        fetch('/plants', {
+            method: 'POST',
+            body: JSON.stringify(this.state),
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(res => fetch('/plants', { method: 'GET', })) // .then function waits for the promise to resolve before moving on to the next .then
+            .then(res => res.json())
+            .then(data => {
+                return this.props.addPlant(data) // returning the data back to the parent
+            })
+            .catch(err => console.log('favClicked: ERROR: ', err));
     }
 
     handleChange(e) {
